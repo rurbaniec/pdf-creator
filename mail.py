@@ -2,11 +2,11 @@
 import boto3
 
 session = boto3.session.Session()
-client = session.client('ses', region_name='eu-central-1')
+client = session.client('ses', region_name='eu-west-1')
 
 def send_email(to, subject, body):
     response = client.send_email(
-        Source='urbaniec_robert@o2.pl',
+        Source='s168569@wizard.uek.krakow.pl',
         Destination={
             'ToAddresses': [
                 to,
@@ -29,11 +29,11 @@ def send_email(to, subject, body):
             }
         },
         ReplyToAddresses=[
-            'urbaniec_robert@o2.pl',
+            's168569@wizard.uek.krakow.pl',
         ],
-        ReturnPath='urbaniec_robert@o2.pl'
+        ReturnPath='s168569@wizard.uek.krakow.pl'
     )
     return response
 
 
-print send_email('urbaniec_robert@o2.pl', 'Album zdjec', 'Test test test')
+print send_email('s168569@wizard.uek.krakow.pl', 'Album zdjec', 'Test test test')
